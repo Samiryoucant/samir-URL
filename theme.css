@@ -1,0 +1,100 @@
+:root {
+    /* Light theme */
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-glow: rgba(59, 130, 246, 0.1);
+    
+    --surface: rgba(255, 255, 255, 0.8);
+    --surface-hover: rgba(255, 255, 255, 0.9);
+    --input-bg: rgba(255, 255, 255, 0.6);
+    
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-tertiary: #9ca3af;
+    
+    --border: rgba(209, 213, 219, 0.8);
+    
+    --gradient-start: #f0f9ff;
+    --gradient-end: #e0f2fe;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+[data-theme="dark"] {
+    --primary: #60a5fa;
+    --primary-hover: #3b82f6;
+    --primary-glow: rgba(96, 165, 250, 0.1);
+    
+    --surface: rgba(17, 24, 39, 0.8);
+    --surface-hover: rgba(17, 24, 39, 0.9);
+    --input-bg: rgba(17, 24, 39, 0.6);
+    
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --text-tertiary: #9ca3af;
+    
+    --border: rgba(55, 65, 81, 0.8);
+    
+    --gradient-start: #111827;
+    --gradient-end: #1f2937;
+    
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Theme toggle icon states */
+[data-theme="dark"] .sun-icon {
+    display: none;
+}
+
+[data-theme="dark"] .moon-icon {
+    display: block;
+}
+
+[data-theme="light"] .sun-icon {
+    display: block;
+}
+
+[data-theme="light"] .moon-icon {
+    display: none;
+}
+
+/* System preference detection */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --primary: #60a5fa;
+        --primary-hover: #3b82f6;
+        --primary-glow: rgba(96, 165, 250, 0.1);
+        
+        --surface: rgba(17, 24, 39, 0.8);
+        --surface-hover: rgba(17, 24, 39, 0.9);
+        --input-bg: rgba(17, 24, 39, 0.6);
+        
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --text-tertiary: #9ca3af;
+        
+        --border: rgba(55, 65, 81, 0.8);
+        
+        --gradient-start: #111827;
+        --gradient-end: #1f2937;
+        
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+        --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+    }
+    
+    :root:not([data-theme="light"]) .sun-icon {
+        display: none;
+    }
+    
+    :root:not([data-theme="light"]) .moon-icon {
+        display: block;
+    }
+}

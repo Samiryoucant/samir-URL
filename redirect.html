@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting... - Samir URL</title>
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔗</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <div class="redirect-container">
+            <div class="redirect-card">
+                <div class="redirect-spinner">
+                    <div class="spinner"></div>
+                </div>
+                <h2 id="redirectTitle">Redirecting...</h2>
+                <p id="redirectMessage">Please wait while we take you to your destination</p>
+                <div class="redirect-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+                <div class="redirect-info" id="redirectInfo">
+                    <p><strong>Token:</strong> <span id="tokenDisplay"></span></p>
+                    <p><strong>Destination:</strong> <span id="destinationUrl"></span></p>
+                </div>
+                <div class="redirect-actions" id="redirectActions">
+                    <button class="action-btn secondary" id="goHomeBtn">Go to Homepage</button>
+                    <a href="#" id="directLink" class="action-btn primary">Open Link Directly</a>
+                </div>
+            </div>
+            
+            <div class="not-found-card" id="notFoundCard">
+                <div class="error-icon">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h2>Link Not Found</h2>
+                <p>The short link you're looking for doesn't exist or may have been deleted.</p>
+                <a href="https://samirurl.netlify.app/" class="action-btn primary">Create New Short Link</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="redirect.js"></script>
+</body>
+</html>

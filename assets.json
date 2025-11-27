@@ -1,0 +1,13 @@
+{
+  "version": "1.0.0",
+  "name": "Samir URL",
+  "description": "Premium URL Shortener",
+  "domain": "https://samirurl.netlify.app",
+  "features": [
+    "URL shortening",
+    "Click tracking",
+    "QR codes",
+    "Social sharing",
+    "Dark/light theme"
+  ]
+}

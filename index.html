@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samir URL - Premium URL Shortener</title>
+    <meta name="description" content="Create short, memorable URLs instantly with Samir URL">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔗</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M17 7H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zm-4.5 7.5a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 7 14.5v-2A1.5 1.5 0 0 1 8.5 11h3a1.5 1.5 0 0 1 1.5 1.5z"/>
+                </svg>
+                Samir URL
+            </h1>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="currentColor" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10zm0-12l1.5 1.5-1.5 1.5-1.5-1.5L12 5zm-7 7H2v2h3v-2zm17 0h-3v2h3v-2zM12 22l-1.5-1.5L12 19l1.5 1.5L12 22zM6.3 6.3L4.9 4.9l1.4 1.4-1.4 1.4-1.4-1.4zm13.4 13.4l-1.4-1.4 1.4-1.4 1.4 1.4-1.4 1.4z"/>
+                </svg>
+                <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20">
+                    <path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.4 5.4 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+                </svg>
+            </button>
+        </header>
+
+        <main class="main">
+            <div class="hero-card">
+                <h2 class="hero-title">Shorten Your Links Instantly</h2>
+                <p class="hero-subtitle">Create beautiful, short URLs that are easy to share and track</p>
+                
+                <form class="url-form" id="urlForm">
+                    <div class="input-group">
+                        <input 
+                            type="url" 
+                            id="urlInput" 
+                            class="url-input" 
+                            placeholder="Paste your long URL here..."
+                            required
+                        >
+                        <button type="submit" class="shorten-btn" id="shortenBtn">
+                            <span class="btn-text">Shorten</span>
+                            <div class="loading-spinner" id="loadingSpinner">
+                                <div class="spinner"></div>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+
+                <div class="result-card" id="resultCard">
+                    <div class="result-header">
+                        <h3>Your Short URL</h3>
+                    </div>
+                    <div class="result-content">
+                        <div class="short-url-display">
+                            <a href="#" id="shortUrlLink" class="short-url" target="_blank" rel="noopener">
+                                <span id="shortUrlText"></span>
+                            </a>
+                            <div class="url-actions">
+                                <button class="action-btn copy-btn" id="copyBtn" data-tooltip="Copy to clipboard">
+                                    <svg viewBox="0 0 24 24" width="18" height="18">
+                                        <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                                    </svg>
+                                </button>
+                                <button class="action-btn share-btn" id="shareBtn" data-tooltip="Share">
+                                    <svg viewBox="0 0 24 24" width="18" height="18">
+                                        <path fill="currentColor" d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/>
+                                    </svg>
+                                </button>
+                                <button class="action-btn qr-btn" id="qrBtn" data-tooltip="QR Code">
+                                    <svg viewBox="0 0 24 24" width="18" height="18">
+                                        <path fill="currentColor" d="M3 11h8V3H3v8zm2-6h4v4H5V5zM3 21h8v-8H3v8zm2-6h4v4H5v-4zM13 3v8h8V3h-8zm6 6h-4V5h4v4z"/>
+                                        <path fill="currentColor" d="M19 19h2v2h-2zM15 15h2v2h-2zM15 19h2v2h-2zM19 15h2v2h-2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qr-modal" id="qrModal">
+                    <div class="qr-modal-content">
+                        <div class="qr-modal-header">
+                            <h3>QR Code</h3>
+                            <button class="close-btn" id="closeQrModal">&times;</button>
+                        </div>
+                        <canvas id="qrCanvas" width="200" height="200"></canvas>
+                        <button class="download-btn" id="downloadQrBtn">Download QR Code</button>
+                    </div>
+                </div>
+
+                <div class="share-modal" id="shareModal">
+                    <div class="share-modal-content">
+                        <div class="share-modal-header">
+                            <h3>Share Link</h3>
+                            <button class="close-btn" id="closeShareModal">&times;</button>
+                        </div>
+                        <div class="share-buttons">
+                            <button class="share-platform twitter" data-platform="twitter">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
+                                </svg>
+                                Twitter
+                            </button>
+                            <button class="share-platform facebook" data-platform="facebook">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="currentColor" d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/>
+                                </svg>
+                                Facebook
+                            </button>
+                            <button class="share-platform whatsapp" data-platform="whatsapp">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="currentColor" d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62 1.09 1.32 1.78.91.88 1.71 1.17 1.95 1.3.24.14.39.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.96 9.96 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z"/>
+                                </svg>
+                                WhatsApp
+                            </button>
+                            <button class="share-platform telegram" data-platform="telegram">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.78 5.42-.9 6.8-.06.67-.36.89-.89.56-2.45-1.83-3.57-2.73-5.78-4.38-.34-.25-.69-.26-.89-.17-.37.16-.37.36-.37.78 0 .39.04.74.13 1.1.14.59.45 1.35.45 1.35s.75 2.38 1.13 3.18c.16.42.31.57.57.57.39 0 .78-.25 1.22-.67 1.66-1.53 2.59-2.51 3.84-4.02.56-.67.34-.78-.56-.89-1.69-.28-3.68-.83-5.56-1.18-.5-.1-1.01-.15-1.01-.15s-.78-.56.54-.83c1.28-.26 3.35-.78 4.46-.89.45-.04.86-.06 1.17-.06.36 0 .69.08.9.17.58.25.39.83.39.83z"/>
+                                </svg>
+                                Telegram
+                            </button>
+                            <button class="share-platform email" data-platform="email">
+                                <svg viewBox="0 0 24 24" width="20" height="20">
+                                    <path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                                </svg>
+                                Email
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="recent-links-section" id="recentLinksSection">
+                <h3 class="recent-title">Recent Links</h3>
+                <div class="recent-links" id="recentLinks"></div>
+            </div>
+        </main>
+    </div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
