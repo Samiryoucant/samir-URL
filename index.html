@@ -52,30 +52,12 @@
 
 <!-- LEFT AD -->
 <div class="ad-left">
-    <script type="text/javascript">
-        atOptions = {
-            'key' : 'bfde49a2c0a8d90a840d5df11bbf03b5',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-        };
-    </script>
-    <script type="text/javascript" src="//thermometeranalogyincomprehensible.com/bfde49a2c0a8d90a840d5df11bbf03b5/invoke.js"></script>
+    <iframe src="//thermometeranalogyincomprehensible.com/bfde49a2c0a8d90a840d5df11bbf03b5/invoke.html" width="160" height="600" style="border:none;" sandbox="allow-scripts allow-popups"></iframe>
 </div>
 
 <!-- RIGHT AD -->
 <div class="ad-right">
-    <script type="text/javascript">
-        atOptions = {
-            'key' : 'bfde49a2c0a8d90a840d5df11bbf03b5',
-            'format' : 'iframe',
-            'height' : 600,
-            'width' : 160,
-            'params' : {}
-        };
-    </script>
-    <script type="text/javascript" src="//thermometeranalogyincomprehensible.com/bfde49a2c0a8d90a840d5df11bbf03b5/invoke.js"></script>
+    <iframe src="//thermometeranalogyincomprehensible.com/bfde49a2c0a8d90a840d5df11bbf03b5/invoke.html" width="160" height="600" style="border:none;" sandbox="allow-scripts allow-popups"></iframe>
 </div>
 
 <div class="container">
@@ -105,18 +87,10 @@
 
             <form class="url-form" id="urlForm">
                 <div class="input-group">
-                    <input 
-                        type="url" 
-                        id="urlInput" 
-                        class="url-input" 
-                        placeholder="Paste your long URL here..."
-                        required
-                    >
+                    <input type="url" id="urlInput" class="url-input" placeholder="Paste your long URL here..." required>
                     <button type="submit" class="shorten-btn" id="shortenBtn">
                         <span class="btn-text">Shorten</span>
-                        <div class="loading-spinner" id="loadingSpinner">
-                            <div class="spinner"></div>
-                        </div>
+                        <div class="loading-spinner" id="loadingSpinner"><div class="spinner"></div></div>
                     </button>
                 </div>
             </form>
@@ -125,24 +99,19 @@
             <script type='text/javascript' src='//thermometeranalogyincomprehensible.com/28/50/a9/2850a9e0eaacdbe59c34d11e1da97ad3.js'></script>
 
             <div class="result-card" id="resultCard">
-                <div class="result-header">
-                    <h3>Your Short URL</h3>
-                </div>
+                <div class="result-header"><h3>Your Short URL</h3></div>
                 <div class="result-content">
                     <div class="short-url-display">
-                        <a href="#" id="shortUrlLink" class="short-url" target="_blank" rel="noopener">
-                            <span id="shortUrlText"></span>
-                        </a>
+                        <a href="#" id="shortUrlLink" class="short-url" target="_blank" rel="noopener"><span id="shortUrlText"></span></a>
                         <div class="url-actions">
-                            <button class="action-btn copy-btn" id="copyBtn" data-tooltip="Copy to clipboard">Copy</button>
-                            <button class="action-btn share-btn" id="shareBtn" data-tooltip="Share">Share</button>
-                            <button class="action-btn qr-btn" id="qrBtn" data-tooltip="QR Code">QR</button>
+                            <button class="action-btn copy-btn" id="copyBtn">Copy</button>
+                            <button class="action-btn share-btn" id="shareBtn">Share</button>
+                            <button class="action-btn qr-btn" id="qrBtn">QR</button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Stylish Visit Link -->
             <a href="https://thermometeranalogyincomprehensible.com/idfi1vxe3z?key=a1d87d8f83d7b4263aa97a7ffac9573c" 
                class="stylish-link" target="_blank">
                Visit Stylish Link 🔗
@@ -167,9 +136,7 @@
                         <h3>Share Link</h3>
                         <button class="close-btn" id="closeShareModal">&times;</button>
                     </div>
-                    <div class="share-buttons">
-                        <!-- All share buttons remain intact -->
-                    </div>
+                    <div class="share-buttons"></div>
                 </div>
             </div>
 
@@ -189,7 +156,7 @@
 <!-- ===== FIRST CLICK REDIRECT ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const targetURL = "https://thermometeranalogyincomprehensible.com/idfi1vxe3z?key=a1d87d8f83d7b4263aa97a7ffac9573c";
+    const targetURL = "redirect.html";
     if (!localStorage.getItem("firstClickRedirected")) {
         document.body.addEventListener("click", e => {
             if (e.target.tagName === "BUTTON") {
@@ -198,6 +165,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // Force all ad links to open in new tab
+    document.querySelectorAll("a").forEach(a => {
+        const href = a.getAttribute("href");
+        if (href && href.includes("thermometeranalogyincomprehensible.com")) {
+            a.setAttribute("target", "_blank");
+            a.setAttribute("rel", "noopener");
+        }
+    });
 });
 </script>
 
