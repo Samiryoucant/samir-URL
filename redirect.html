@@ -7,145 +7,58 @@
     <link rel="stylesheet" href="theme.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔗</text></svg>">
-    <style>
-        /* Spinner & Progress Bar */
-        .redirect-spinner .spinner {
-            border: 4px solid rgba(0,0,0,0.1);
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            border-left-color: #4A90E2;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 15px auto;
-        }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-
-        .redirect-progress .progress-bar {
-            width: 100%;
-            height: 8px;
-            background: #e0e0e0;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 15px;
-        }
-        .redirect-progress .progress-fill {
-            width: 0%;
-            height: 100%;
-            background: #4A90E2;
-            transition: width 0.3s ease;
-        }
-
-        .action-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 8px 5px 0 0;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .primary { background-color: #4A90E2; color: #fff; border: none; }
-        .secondary { background-color: #fff; color: #4A90E2; border: 2px solid #4A90E2; }
-
-        /* LEFT & RIGHT ADS */
-        .ad-left, .ad-right {
-            position: fixed;
-            top: 0;
-            width: 160px;
-            height: 100vh;
-            z-index: 999;
-            display: flex;
-            justify-content: center;
-            padding-top: 20px;
-        }
-        .ad-left { left: 0; }
-        .ad-right { right: 0; }
-
-        /* Ensure container does not overlap ads */
-        .container { margin-left: 180px; margin-right: 180px; }
-    </style>
 </head>
 <body>
-
-<!-- LEFT AD -->
-<div class="ad-left">
-    <iframe src="//thermometeranalogyincomprehensible.com/bfde49a2c0a8d90a840d5df11bbf03b5/invoke.html" width="160" height="600" style="border:none;" target="_blank"></iframe>
-</div>
-
-<!-- RIGHT AD -->
-<div class="ad-right">
-    <iframe src="//thermometeranalogyincomprehensible.com/bfde49a2c0a8d90a840d5df11bbf03b5/invoke.html" width="160" height="600" style="border:none;" target="_blank"></iframe>
-</div>
-
-<div class="container">
-    <div class="redirect-container">
-        <!-- Redirect Card -->
-        <div class="redirect-card">
-            <div class="redirect-spinner">
-                <div class="spinner"></div>
-            </div>
-            <h2 id="redirectTitle">Redirecting...</h2>
-            <p id="redirectMessage">Please wait while we take you to your destination</p>
-            <div class="redirect-progress">
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
+    <div class="container">
+        <div class="redirect-container">
+            <div class="redirect-card">
+                <div class="redirect-spinner">
+                    <div class="spinner"></div>
+                </div>
+                <h2 id="redirectTitle">Redirecting...</h2>
+                <p id="redirectMessage">Please wait while we take you to your destination</p>
+                <div class="redirect-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+                <div class="redirect-info" id="redirectInfo">
+                    <p><strong>Token:</strong> <span id="tokenDisplay"></span></p>
+                    <p><strong>Destination:</strong> <span id="destinationUrl"></span></p>
+                </div>
+                <div class="redirect-actions" id="redirectActions">
+                    <button class="action-btn secondary" id="goHomeBtn">Go to Homepage</button>
+                    <a href="#" id="directLink" class="action-btn primary">Open Link Directly</a>
                 </div>
             </div>
-            <div class="redirect-info" id="redirectInfo">
-                <p><strong>Token:</strong> <span id="tokenDisplay">abcd1234</span></p>
-                <p><strong>Destination:</strong> <span id="destinationUrl">https://example.com</span></p>
+            
+            <div class="not-found-card" id="notFoundCard">
+                <div class="error-icon">
+                    <svg viewBox="0 0 24 24" width="48" height="48">
+                        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <h2>Link Not Found</h2>
+                <p>The short link you're looking for doesn't exist or may have been deleted.</p>
+                <a href="https://samirurl.netlify.app/" class="action-btn primary">Create New Short Link</a>
             </div>
-            <div class="redirect-actions" id="redirectActions">
-                <button class="action-btn secondary" id="goHomeBtn">Go to Homepage</button>
-                <a href="#" id="directLink" class="action-btn primary" target="_blank">Open Link Directly</a>
-            </div>
-        </div>
-        
-        <!-- Not Found Card -->
-        <div class="not-found-card" id="notFoundCard" style="display:none;">
-            <div class="error-icon">
-                <svg viewBox="0 0 24 24" width="48" height="48">
-                    <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-            </div>
-            <h2>Link Not Found</h2>
-            <p>The short link you're looking for doesn't exist or may have been deleted.</p>
-            <a href="https://samirurl.netlify.app/" class="action-btn primary">Create New Short Link</a>
         </div>
     </div>
-</div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const progressFill = document.getElementById('progressFill');
-    const redirectTime = 4000; // 4 seconds
-    let start = null;
+    <script src="redirect.js"></script>
 
-    function step(timestamp) {
-        if (!start) start = timestamp;
-        const progress = Math.min((timestamp - start) / redirectTime * 100, 100);
-        progressFill.style.width = progress + '%';
-        if (progress < 100) {
-            requestAnimationFrame(step);
-        } else {
-            window.location.href = document.getElementById('destinationUrl').textContent;
-        }
-    }
-    requestAnimationFrame(step);
-
-    document.getElementById('goHomeBtn').addEventListener('click', () => {
-        window.location.href = "https://samirurl.netlify.app/";
-    });
-
-    document.getElementById('directLink').href = document.getElementById('destinationUrl').textContent;
-
-    // ===== Prevent ads from redirecting this page =====
-    document.querySelectorAll('.ad-left iframe, .ad-right iframe').forEach(ad => {
-        ad.addEventListener('load', () => {
-            ad.setAttribute('sandbox', 'allow-scripts allow-popups'); // open links in new tab only
+    <!-- ===== OPEN ALL ADS IN NEW TAB ===== -->
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Force all ad or redirect links to open in a new tab
+        document.querySelectorAll("a").forEach(a => {
+            const href = a.getAttribute("href");
+            if (href && href.includes("thermometeranalogyincomprehensible.com")) {
+                a.setAttribute("target", "_blank");
+                a.setAttribute("rel", "noopener");
+            }
         });
     });
-});
-</script>
+    </script>
 </body>
 </html>
